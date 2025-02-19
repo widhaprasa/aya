@@ -8,8 +8,10 @@ const config = {
   directories: {
     output: `../release/${pkg.version}`,
   },
-  files: ['main', 'preload', 'renderer', 'adb', 'server'],
-  asarUnpack: ['adb/**/*', 'server/**/*'],
+  // files: ['main', 'preload', 'renderer', 'adb', 'server'],
+  files: ['main', 'preload', 'renderer'],
+  // asarUnpack: ['adb/**/*', 'server/**/*'],
+  asarUnpack: [],
   artifactName: '${name}-${version}-${os}-${arch}.${ext}',
   nsis: {
     allowToChangeInstallationDirectory: true,
@@ -24,7 +26,8 @@ const config = {
     ],
   },
   mac: {
-    electronLanguages: ['zh_CN', 'en'],
+    // electronLanguages: ['zh_CN', 'en'],
+    electronLanguages: ['en'],
   },
 }
 

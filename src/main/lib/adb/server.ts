@@ -80,18 +80,20 @@ class AyaClient {
   })
   private async push() {
     logger.info('push')
-    const device = client.getDevice(this.deviceId)
-    await device.push(
-      resolveUnpack('server/aya.dex'),
-      '/data/local/tmp/aya/aya.dex'
-    )
+    // Note-m2mrem: Disable push
+    // const device = client.getDevice(this.deviceId)
+    // await device.push(
+    //   resolveUnpack('server/aya.dex'),
+    //   '/data/local/tmp/aya/aya.dex'
+    // )
   }
   private async start() {
     logger.info('start')
-    const device = client.getDevice(this.deviceId)
-    await device.shell(
-      'CLASSPATH=/data/local/tmp/aya/aya.dex app_process /system/bin io.liriliri.aya.Server'
-    )
+    // Note-m2mrem: Disable start
+    // const device = client.getDevice(this.deviceId)
+    // await device.shell(
+    //   'CLASSPATH=/data/local/tmp/aya/aya.dex app_process /system/bin io.liriliri.aya.Server'
+    // )
   }
 }
 

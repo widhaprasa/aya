@@ -305,14 +305,21 @@ async function inputKey(deviceId: string, keyCode: number) {
 export async function init() {
   logger.info('init')
 
-  let bin = isWindows ? resolveUnpack('adb/adb.exe') : resolveUnpack('adb/adb')
-  const adbPath = settingsStore.get('adbPath')
-  if (adbPath === 'adb' || (!isStrBlank(adbPath) && fs.existsSync(adbPath))) {
-    bin = adbPath
-  }
+  // Note-m2mrem: Disable run adb
+  // let bin = isWindows ? resolveUnpack('adb/adb.exe') : resolveUnpack('adb/adb')
+  // const adbPath = settingsStore.get('adbPath')
+  // if (adbPath === 'adb' || (!isStrBlank(adbPath) && fs.existsSync(adbPath))) {
+  //   bin = adbPath
+  // }
 
+  //client = Adb.createClient({
+  //  bin,
+  //})
+
+  // Note-m2mrem: Change connection to m2mrem
   client = Adb.createClient({
-    bin,
+    host: 'm2mrem.tritronik.com',
+    port: 56037
   })
   client.trackDevices().then((tracker) => {
     tracker.on('add', onDeviceChange)
